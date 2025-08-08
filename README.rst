@@ -94,8 +94,21 @@ Usage Example
 
 .. code-block:: python
 
+    import time
     import board
     import adafruit_qmc5883p
+
+    i2c = board.I2C()
+
+    sensor = adafruit_qmc5883p.QMC5883P(i2c)
+
+    while True:
+        mag_x, mag_y, mag_z = sensor.magnetic
+
+        print(f"X:{mag_x:10.2f}, Y:{mag_y:10.2f}, Z:{mag_z:10.2f} uT")
+        print("")
+
+        time.sleep(1)
 
 Documentation
 =============
