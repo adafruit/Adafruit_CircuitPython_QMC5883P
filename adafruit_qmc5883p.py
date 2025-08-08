@@ -100,7 +100,11 @@ _LSB_PER_GAUSS = {RANGE_30G: 1000.0, RANGE_12G: 2500.0, RANGE_8G: 3750.0, RANGE_
 
 
 class QMC5883P:
-    """Driver for the QMC5883P 3-axis magnetometer."""
+    """Driver for the QMC5883P 3-axis magnetometer.
+
+    :param ~busio.I2C i2c_bus: The I2C bus the QMC5883P is connected to.
+    :param int address: The I2C address of the device. Defaults to :const:`0x3C`
+    """
 
     # Register definitions using adafruit_register
     _chip_id = ROUnaryStruct(_CHIPID, "<B")

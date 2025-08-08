@@ -105,7 +105,7 @@ Usage Example
     while True:
         mag_x, mag_y, mag_z = sensor.magnetic
 
-        print(f"X:{mag_x:10.2f}, Y:{mag_y:10.2f}, Z:{mag_z:10.2f} uT")
+        print(f"X:{mag_x:2.3f}, Y:{mag_y:2.3f}, Z:{mag_z:2.3f} G")
         print("")
 
         time.sleep(1)

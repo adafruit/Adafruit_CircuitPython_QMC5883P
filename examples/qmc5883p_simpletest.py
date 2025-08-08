@@ -10,12 +10,14 @@ import board
 
 import adafruit_qmc5883p
 
-i2c = board.I2C()  # uses board.SCL and board.SDA
-# i2c = board.STEMMA_I2C()  # For using the built-in STEMMA QT connector on a microcontroller
+i2c = board.I2C()
+# i2c = board.STEMMA_I2C()
 
 sensor = adafruit_qmc5883p.QMC5883P(i2c)
 
-# Optional: Configure sensor settings
+# configure sensor settings
+# defaults to MODE_NORMAL, ODR_50HZ, RANGE_8G
+
 # sensor.mode = adafruit_qmc5883p.MODE_CONTINUOUS
 # sensor.data_rate = adafruit_qmc5883p.ODR_10HZ
 # sensor.range = adafruit_qmc5883p.RANGE_2G
