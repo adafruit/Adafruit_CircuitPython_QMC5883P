@@ -131,11 +131,11 @@ class QMC5883P:
             raise RuntimeError("Failed to find QMC5883P chip")
 
         # Initialize with default settings
-        self.mode = MODE_CONTINUOUS
-        self.data_rate = ODR_10HZ
-        self.oversample_ratio = OSR_8
-        self.downsample_ratio = DSR_1
-        self.range = RANGE_2G
+        self.mode = MODE_NORMAL
+        self.data_rate = ODR_50HZ
+        self.oversample_ratio = OSR_4
+        self.downsample_ratio = DSR_2
+        self.range = RANGE_8G
         self.setreset_mode = SETRESET_ON
 
     @property
@@ -160,9 +160,9 @@ class QMC5883P:
         lsb_per_gauss = _LSB_PER_GAUSS[self._range]
 
         # Convert to Gauss then to microteslas (1 Gauss = 100 uT)
-        x = (raw_x / lsb_per_gauss) * 100.0
-        y = (raw_y / lsb_per_gauss) * 100.0
-        z = (raw_z / lsb_per_gauss) * 100.0
+        x = raw_x / lsb_per_gauss
+        y = raw_y / lsb_per_gauss
+        z = raw_z / lsb_per_gauss
 
         return (x, y, z)
 
