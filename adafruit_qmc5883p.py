@@ -177,7 +177,7 @@ class QMC5883P:
         :return: A 3-tuple of X, Y, Z axis raw values
         """
         # Wait for data ready
-        while not self._data_ready:
+        while not self.data_ready:
             time.sleep(0.001)
 
         # Read all 6 bytes at once
